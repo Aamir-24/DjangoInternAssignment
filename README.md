@@ -1,9 +1,9 @@
 # DjangoInternAssignment
-1.Setting up a Django project and app:
-django-admin startproject projectname
-python manage.py startapp appname
+1. Setting up a Django project and app:
+   django-admin startproject projectname
+   python manage.py startapp appname
 
-2.    Creating the models:
+2.Creating the models:
 
 Models are classes that define the structure of the database tables. In this case, we need three models: Client, Artist, and Work.
 
@@ -13,11 +13,11 @@ The Artist model has two fields: name and works. The works field is a many-to-ma
 
 The Work model has two fields: link and work_type. The link field is a URLField that stores the link to the artist's work. The work_type field is a CharField with choices that allow us to specify the type of work. In this case, we have three choices: Youtube, Instagram, and Other.
 
-3.Signals are a way to trigger certain actions in response to specific events in Django. In this case, we want to create a new Client object whenever a new User is registered on the site.
+3.Signals are a way to trigger certain actions in response to specific events in Django. In this case, we want to create a new Client object whenever a new User is         registered on the site.
 
 We use the post_save signal to create the new Client object. We also use the receiver decorator to register the signal.
 
-4.    Creating the serializers:
+4.Creating the serializers:
 
 Serializers are classes that convert complex data types (like Django models) into simple data types (like JSON) that can be easily transferred over the internet. In this case, we need three serializers: ClientSerializer, ArtistSerializer, and WorkSerializer.
 
@@ -25,7 +25,7 @@ The ClientSerializer and WorkSerializer are straightforward - they simply map th
 
 The ArtistSerializer is a bit more complex because it needs to include the works associated with each artist. We use the nested serializer technique to include the works.
 
-5.    Creating the views:
+5.Creating the views:
 
 Views are classes that handle requests from the client and return responses. In this case, we need three views: WorkList, ArtistList, and RegisterClient.
 
@@ -35,7 +35,7 @@ The ArtistList view retrieves all the artists from the database and serializes t
 
 The RegisterClient view creates a new Client object when a POST request is sent with the username and password in the request body.
 
-6.    Creating the URLs:
+6.Creating the URLs:
 
 URLs are the endpoints that clients can access to interact with the API. In this case, we need three URLs: /api/works, /api/artist, and /api/register.
 
